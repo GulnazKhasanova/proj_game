@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script>
+        class Worker {
+           constructor(name, surname, days, rate) {
+                this.name = name;
+                this.surname = surname;
+                this.days = days;
+                this.rate = rate;
+           }
+            setName(name){
+                this.name = name;
+            }
+            getName(){
+                return this.name;
+            }
+            
+            
+            setSurname(surname){
+                this.surname = surname;
+            }
+            getSurname(){
+                return this.surname;
+            }
+            
+            setDays(days){
+                this.days = days;
+            }
+            getDays(){
+                return this.days;
+            }
+            
+            setRate(rate){
+                this.rate = rate;
+            }
+            getRate(){
+                return this.rate;
+            }
+            
+            getSalary(){
+                
+                return this.days * this.rate;
+            }
+        }
+        var worker = new Worker ('Иван', 'Иванов', 31, 10);
+            console.log(worker.getName());
+            console.log(worker.getSurname());
+            console.log(worker.getDays());
+            console.log(worker.getSalary());
+                    
+//=====================&===========================
+            
+        class MyString {
+            constructor(str){
+                this.str = str;
+                
+            }   
+            
+            revers(str){ 
+               return str.split('').reverse().join(' ');
+                
+            }
+            
+            usFirst(str) {
+                let newstr = str[0].toUpperCase() + str.slice(1);
+                return newstr;
+            }
+            
+            usWords(str) {
+                let splitStr = str.split(' ');
+                for (var i = 0; i < splitStr.length; i++) {
+                   splitStr[i]  = splitStr[i].charAt(0).toUpperCase() + splitStr[i].slice(1); //* substring(1) можно использовать
+                }
+                return splitStr.join(' ');
+            }
+            
+            
+            }
+            var str = new MyString();
+            console.log(str.usWords('abcd abcd abcd'));
+            console.log(str.revers('abcd'));
+            console.log(str.usFirst('abcd'));
+
+//=====================&===========================
+            
+            class Validator {
+                constructor(email, domain, data, phone) {
+                    this.email = email;
+                    this.domain = domain;
+                    this.data = data;
+                    this.phone = phone;
+                }
+                isMail(email) {
+                    if(email){
+                        var valid = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+                        return valid.test(String(email).toLowerCase());
+                    }
+                }
+                isDomain(domain) {
+                    
+                }
+                isData(data) {
+                    
+                }
+                isPhone(phone) {
+                    
+                }
+            }
+            var valid = new Validator();
+            console.log(valid.isMail('kshjfah@mail.ru'));
+        </script>
+    </head>
+<body>
+    
+</body>    
+</html>
