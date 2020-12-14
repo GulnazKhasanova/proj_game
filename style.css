@@ -1,0 +1,33 @@
+body{
+    background-color: #e3e3e3 !important;
+    margin: 0;
+    padding: 0;
+}
+#app{
+    margin: 10px;
+    padding: 10px;
+}
+.size,
+.color
+{
+    margin: 0 5px; 
+}
+.left{
+   margin-left: auto;
+}
+.save:before   { content: "\2714";}
+
+.width_b {
+    width: 100%;
+    display: flex !important;
+}
+.canv{
+    background-color:#fff;
+    margin-top: 5px;
+    border-radius: 1.2%;
+    border:4px double #e3e3e3;
+}
+#coordinates{
+    display: flex;
+    justify-content: flex-start;
+}

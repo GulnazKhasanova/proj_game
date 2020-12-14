@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+ <body>
+   <div id="app">
+   <div id="tools">
+    <div  class="width_b btn-group btn-group-toggle" data-toggle="butons">
+       <button class="btn btn-primary" name="tool"
+          data-tool="pencil"
+          data-toggle="tooltip"
+          data-placement="bottom">✎          
+       <input type="radio" name="options" autocomplete="off" checked>
+       </button>
+       <button class="btn btn-primary"name="tool"
+          data-tool="fill"
+          data-toggle="tooltip"
+          data-placement="bottom">&#9632;       
+       <input type="radio" name="options" autocomplete="off">
+       </button>
+       <button class="btn btn-primary"name="tool"
+          data-tool="eraser"
+          data-toggle="tooltip"
+          data-placement="bottom">❑          
+       <input type="radio" name="options" autocomplete="off">
+       </button>
+       <button class="btn btn-primary"name="tool"
+          data-tool="square"
+          data-toggle="tooltip"
+          data-placement="bottom">&#9674;          
+       <input type="radio" name="options" autocomplete="off">
+       </button>
+       <button class="btn btn-primary"name="tool"
+          data-tool="clearCnv"
+          data-toggle="tooltip"
+          data-placement="bottom">✘          
+       <input type="radio" name="options" autocomplete="off">
+       </button>
+       <div class="size">
+           <input type="range" name="tool-input" data-tool="BrushSize" min="1" max="100" value="0">
+       </div>
+       <div class="color">
+           <input type="color" name="tool-input" data-tool="Color">
+       </div>
+        <div class="left saveImg">
+           <button class=" save btn btn-primary" id="save-img">Save</button>
+       </div>
+     </div>
+    </div>   
+    <div class="canv">
+         <canvas id="canv" width="1200" height="700"></canvas>
+    </div>
+    <div class="tools">
+        <div id="coordinates">
+            <p id="x" ><b>x:</b> <span id="xCoord"></span></p>
+            <p id="y" ><b>y:</b> <span id="yCoord"></span></p>
+        </div>
+    </div>
+   </div>
+<script src="canvas.js">
+</script> 
+</body>
+
+</html>
