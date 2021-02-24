@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>ФотоЖАБ</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
+    </head>
+    <body>
+        <div class="container" id="app">
+            <div class="paint">
+               <div id="tools">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                      <button 
+                          type="button" 
+                          class="btn btn-secondary"
+                          name="tool"
+                          data-tool="pencil"
+                          data-toggle="tooltip"><input type="radio" name="options" id="option1" checked>&#9998;        
+                      </button>
+                      <button 
+                          type="button" 
+                          class="btn btn-secondary"
+                          name="tool"
+                          data-tool="fill"
+                          data-toggle="tooltip"><input type="radio" name="options" id="option1" checked>
+                      &#127778;</button>
+                      <button 
+                          type="button" 
+                          class="btn btn-secondary"
+                          name="tool"
+                          data-tool="clearCnv"
+                          data-toggle="tooltip"><input type="radio" name="options" id="option1" checked>
+                      &#10008;</button>
+                      <button 
+                          type="button" 
+                          class="btn btn-secondary"
+                          name="tool"
+                          data-tool="eraser"
+                          data-toggle="tooltip"><input type="radio" name="options" id="option1" checked>
+                      &#10066;</button>
+                      <button 
+                          type="button" 
+                          class="btn btn-secondary"
+                          name="tool"
+                          data-tool="square"
+                          data-toggle="tooltip"><input type="radio" name="options" id="option1" checked>
+                      &#9645;</button>
+                </div>
+                <div class="color">
+                    <input type="color" name="tool-input"
+                          data-tool="Color">
+                </div>
+                <div class="size">
+                    <input type="range" min="1" max="100" value="0" name="tool-input"
+                          data-tool="BrushSize">
+                </div>
+                <div class="saveImg">
+                    <button class="btn btn-light" id="save-img">&#128190;Save
+                    </button>
+                </div>
+              </div>
+            </div>
+            <div class="canv">
+                <canvas id="canv" width="1000" height="600"></canvas>
+            </div>
+            <div class="tools">
+                <div class="coordinates">
+                    <p id="x">x: <span id="xCoord"></span></p>
+                    <p id="y">y: <span id="yCoord"></span></p>
+                </div>
+            </div>
+
+        </div>
+        
+        
+        
+        <script src="canvas.js"></script>
+    </body>
+</html>
