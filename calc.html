@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <meta charset="utf-8">
+        <title>Calc</title>
+    </head>
+    
+    <body>
+       
+        <style>
+            .calc{
+                display: flex;
+                flex-direction: column;
+                width: 300px;
+                height: 300px;
+                background-color: darkslategrey;
+                
+            }
+            .all_buttons{
+                 display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+            }
+            .calc_input{
+                font-size: 12px;
+                margin: 15px;
+                width: 250px;
+                height: 50px;
+                background-color: #f3f3f3;
+                border-radius: 2px;
+                border: 1px solid #a3a3a3;
+                padding:2px 5px;
+            }
+            .nums{
+                display: flex;
+                flex-wrap: wrap;
+                width: 150px;
+                margin-left: 10px;
+                margin-top: 5px;
+                margin-right: 10px;
+                justify-content: space-around;
+            }
+            .button_num,
+            .button_ops{
+                display: flex;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+                width: 35px;
+                height: 35px;
+                background-color: #f3f3f3;
+                margin: 3px;
+                padding: 3px;
+                color: black;
+                font-size: 12px;
+                text-decoration: none;
+            }
+            .button_ops:active,
+            .button_num:active{
+                background-color: #c3c3c3;
+            }
+            .but_ops{
+                display: flex;
+                flex-direction: column;
+                justify-content: center; 
+                margin-left: 10px;
+                margin-top: 5px;
+                margin-right: 10px;
+            }           
+            
+        </style>
+        
+        
+        <div class="calc">
+           <input class="calc_input" id="screen" type="text">
+           <div class="all_buttons">
+            <div class="nums" id="num" >
+                <button href="" class="button_num" name="number" data-value="1">1</button>
+                <button href="" class="button_num" name="number"data-value="2">2</button>
+                <button href="" class="button_num" name="number"data-value="3">3</button>
+                <button href="" class="button_num" name="number"data-value="4">4</button>
+                <button href="" class="button_num" name="number"data-value="5">5</button>
+                <button href="" class="button_num" name="number"data-value="6">6</button>
+                <button href="" class="button_num" name="number"data-value="7">7</button>
+                <button href="" class="button_num" name="number"data-value="8">8</button>
+                <button href="" class="button_num" name="number"data-value="9">9</button>
+            </div>
+            <div class="but_ops" id="ops">
+                <button href="" class="button_ops" name="operator"data-value="Sum">+</button>
+                <button href="" class="button_ops" name="operator"data-value="Min">-</button>
+                <button href="" class="button_ops" name="operator"data-value="Mul">*</button>
+                <button href="" class="button_ops" name="operator"data-value="Del">/</button>
+                <button href="" class="button_ops" name="result">=</button>
+                <button href="" class="button_ops" name="clear">C</button>
+            </div>
+           </div>
+        </div>
+        
+        
+      <script>
+        const numberKeys = document.querySelector('#num');
+        const operatorKeys = document.querySelector('#ops');
+          
+        const calc = {
+            numberA: 0,
+            numberB: 0,
+            stage: 'A',
+            screen: document.querySelector('#screen'),
+            operation: '',
+            
+            init() {
+                this._handleEvents();
+            },
+            _handleEvents() {
+                  numberKeys.addEventListener('click', this._addNumber.bind(this));
+                operatorKeys.addEventListener('click', this._opHandler.bind(this));
+              },
+            _addNumber(evt) {
+               if(evt.target.name === 'number') {
+                   let value = evt.target.dataset.value;
+                   if(this[`number${this.stage}`] === 0) {
+                       this[`number${this.stage}`] = +value;
+                   }
+                      else {
+                          this[`number${this.stage}`] += value;
+                      }
+                  this.screen.value = this[`number${this.stage}`];
+                  } 
+            },
+            _opHandler(evt) {
+                if(evt.target.name === 'operator') {
+                    this.stage = 'B';
+                    this.screen.value = '';
+                    this.operation = evt.target.dataset.value;
+                }
+                if(evt.target.name === 'result') {
+                    this[`_make${this.operation}`]();
+                    this.numberA = this.screen.value;
+                    this.numberB = 0;
+                    this.stage = 'A';
+                }
+                if(evt.target.name === 'clear') {
+                    this.numberA = 0;
+                    this.numberB = 0;
+                    this.screen.value = '';
+                    this.stage = 'A';
+                }
+            },
+            
+            
+            _makeSum() {
+               this.screen.value = +this.numberA + +this.numberB;    
+            },
+            _makeMin() {
+                this.screen.value = +this.numberA - +this.numberB;
+            },
+            _makeMul() {
+                this.screen.value = +this.numberA * +this.numberB;
+            },
+            _makeDel() {
+                this.screen.value = +this.numberA / +this.numberB;
+            }
+        }
+            calc.init();
+    
+     </script>  
+    </body>
+</html>
